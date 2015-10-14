@@ -653,8 +653,8 @@ function ngMessageDirectiveFactory(restrict) {
                 // to deregister the message from the controller
                 currentElement.on('$destroy', function() {
                   if (currentElement && currentElement.$$attachId === $$attachId) {
-                    ngMessagesCtrl.deregister(commentNode);
-                    messageCtrl.detach();
+                    //ngMessagesCtrl.deregister(commentNode); // commented because in our case all situations in which
+                    messageCtrl.detach(); // $destroy is called for this element will also destroy the controller
                   }
                 });
               });
